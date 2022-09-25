@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'nicereply' => [
+        'domain' => env('NICEREPLY_DOMAIN', 'https://api.nicereply.com/v1'),
+        'domain' => env('NICEREPLY_USER', 'peter-krupa'),
+        'public' => env('NICEREPLY_PUBLIC_KEY', ''),
+        'private' => env('NICEREPLY_PRIVATE_KEY', ''),
+    ]
 ];

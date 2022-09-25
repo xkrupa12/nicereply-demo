@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\NiceReply\Client;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,9 +12,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        //
+        $this->app->singleton(Client::class, fn () => new Client(
+            config('services.nicereply.domain'),
+            config('services.nicereply.user'),
+            config('services.nicereply.private'),
+        ));
     }
 
     /**
@@ -21,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         //
     }
